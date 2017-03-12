@@ -1,0 +1,21 @@
+<div class="">
+
+  <div class="pull-right">
+    <%= link_to("增加职位", new_job_path, :class => "btn btn-primary btn-sm" ) %>
+  </div>
+
+  <table class="table table-border">
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= link_to(job.title, job_path(job)) %></td>
+        <td>
+          <%= link_to("编缉职位", edit_job_path(job), :class => "btn btn-success btn-xs" ) %>
+          |
+          <%= link_to("删除职位", job_path(job),method: :delete, :class => "btn btn-danger btn-xs" ) %>
+        </td>
+        <td><%= job.created_at %></td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>
