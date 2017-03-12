@@ -15,6 +15,12 @@
         <%= link_to("编缉职位", edit_admin_job_path(job), :class => "btn btn-success btn-xs") %>
         |
         <%= link_to("删除职位", admin_job_path(job), method: :delete,:class => "btn btn-danger btn-xs", :data => { confirm: :"Are you sure?" }) %>
+
+        <% if job.is_hidden %>
+          <%= link_to("Publish", publish_admin_job_path(job),:method => :post, :class => "btn btn-xs btn-primary" ) %>
+        <% else %>
+          <%= link_to("Hide", hide_admin_job_path(job),:method => :post, :class => "btn btn-xs btn-primary" ) %>
+        <% end %>
       </td>
       <td><%= job.created_at %></td>
     </tr>
